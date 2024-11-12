@@ -43,7 +43,7 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
 
     public static final String TOKEN_PREFIX = "Bearer ";
-    public static final String HEADER_STRING = "Authentication ";
+    public static final String HEADER_STRING = "Authorization";
 
 
 
@@ -77,8 +77,8 @@ public class AuthenticationController {
         }
 
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername (authenticationRequest.getUsername());
-        final String jwt=jwtUtil.generateToken (userDetails.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final String jwt = jwtUtil.generateToken(userDetails);
         User user = userRepository.findFirstByEmail (authenticationRequest.getUsername());
         response.getWriter().write(new JSONObject()
                 .put("userId", user.getId())
