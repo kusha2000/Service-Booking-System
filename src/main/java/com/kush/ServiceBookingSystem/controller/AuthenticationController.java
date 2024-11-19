@@ -50,7 +50,7 @@ public class AuthenticationController {
     @PostMapping("/client/sign-up")
     public ResponseEntity<?> signupClient(@RequestBody SignUpRequestDTO signUpRequestDTO){
         if(authService.presentByEmail(signUpRequestDTO.getEmail())){
-            return new ResponseEntity<>("Client already exsits with this Email", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>("Client already exists with this Email", HttpStatus.NOT_ACCEPTABLE);
         }
 
         UserDto createdUser = authService.signupClient(signUpRequestDTO);
@@ -60,7 +60,7 @@ public class AuthenticationController {
     @PostMapping("/company/sign-up")
     public ResponseEntity<?> signupCompany(@RequestBody SignUpRequestDTO signUpRequestDTO){
         if(authService.presentByEmail(signUpRequestDTO.getEmail())){
-            return new ResponseEntity<>("Company already exsits with this Email", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>("Company already exists with this Email", HttpStatus.NOT_ACCEPTABLE);
         }
 
         UserDto createdUser = authService.signupCompany(signUpRequestDTO);
