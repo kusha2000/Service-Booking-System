@@ -1,0 +1,47 @@
+.bg {
+    background-color: #f8f8f8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.child {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.profile {
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+h2 {
+    cursor: pointer;
+    color: #108ee9;
+}
+
+h2:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 10px;
+}

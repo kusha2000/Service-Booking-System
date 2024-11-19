@@ -1,1 +1,38 @@
-<p>client-dashboard works!</p>
+
+<form nz-form [formGroup]="validateForm" (submit)="searchAdByName()" style="margin-top: 20px; margin-bottom: 20px; text-align: center;">
+    <input nz-input placeholder="Enter service to search" nzSize="large" style="width: 20%;" formControlName="service" />
+
+    <button nz-button nzSize="large" nzType="primary" style="margin-left: 15px;" [disabled]="validateForm.invalid">Search</button>
+</form>
+   
+
+
+<div class="bg">
+    <div class="grid">
+        <div class="child" *ngFor="let ad of ads">
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    <img class="profile" [src]="updateImg(ad.returnedImg)" style="height:130px;width:100%;border-radius:10px"/>
+                </div>
+                <div nz-col nzSpan="24">
+                    <h2 
+                    style="cursor: pointer; color:#108ee9" 
+                    [routerLink]="'/client/ad/' + ad.id">
+                    {{ ad.serviceName }}
+                </h2>
+                
+                    <!-- <button nzSize="small" nz-button nzType="primary" routerLink="/client/ad/{{ad.id}}">View</button> -->
+                    <hr>
+                    <h5>
+                        Price: <b>{{ad.price}}</b>
+                    </h5>
+                    <h5>
+                        Description: <b>{{ad.description}}</b>
+                    </h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

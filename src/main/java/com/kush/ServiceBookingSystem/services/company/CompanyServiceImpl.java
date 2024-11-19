@@ -1,15 +1,20 @@
 package com.kush.ServiceBookingSystem.services.company;
 
 import com.kush.ServiceBookingSystem.dto.AdDTO;
+import com.kush.ServiceBookingSystem.dto.ReservationDTO;
 import com.kush.ServiceBookingSystem.entity.Ad;
+import com.kush.ServiceBookingSystem.entity.Reservation;
 import com.kush.ServiceBookingSystem.entity.User;
+import com.kush.ServiceBookingSystem.enums.ReservationStatus;
 import com.kush.ServiceBookingSystem.repository.AdRepository;
+import com.kush.ServiceBookingSystem.repository.ResevationRepository;
 import com.kush.ServiceBookingSystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -21,6 +26,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     private AdRepository adRepository;
+
+    @Autowired
+    private ResevationRepository resevationRepository;
 
     public boolean postAd(Long userId, AdDTO adDTO) throws IOException {
         Optional<User> optionalUser = userRepository.findById(userId);
@@ -73,6 +81,28 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<Ad> optionalAd = adRepository.findById(adId);
         if(optionalAd.isPresent()) {
             adRepository.delete(optionalAd.get());
+            return true;
+        }
+        return false;
+    }
+
+    public List<ReservationDTO> getAllAdBookings(Long companyId){
+        return resevationRepository.findAllByCompanyId(companyId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
+    }
+
+    public boolean changeBookingStatus(Long bookingId,String status){
+        Optional<Reservation> optionalReservation = resevationRepository.findById(bookingId);
+        if(optionalReservation.isPresent()) {
+            Reservation existingReservation=optionalReservation.get();
+            if(Objects.equals(status,"Approve")){
+                existingReservation.setReservationStatus(ReservationStatus.APPROVED);
+            }else if(Objects.equals(status,"Reject")){
+                existingReservation.setReservationStatus(ReservationStatus.REJECTED);
+            }else if(Objects.equals(status,"Pending")){
+                existingReservation.setReservationStatus(ReservationStatus.PENDING);
+            }
+
+            resevationRepository.save(existingReservation);
             return true;
         }
         return false;
