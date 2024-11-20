@@ -3,10 +3,13 @@ package com.kush.ServiceBookingSystem.services.client;
 import com.kush.ServiceBookingSystem.dto.AdDTO;
 import com.kush.ServiceBookingSystem.dto.AdDetailsForClientDTO;
 import com.kush.ServiceBookingSystem.dto.ReservationDTO;
+import com.kush.ServiceBookingSystem.dto.ReviewDTO;
 import com.kush.ServiceBookingSystem.entity.Reservation;
+import com.kush.ServiceBookingSystem.entity.Review;
 import com.kush.ServiceBookingSystem.entity.User;
 import com.kush.ServiceBookingSystem.repository.AdRepository;
 import com.kush.ServiceBookingSystem.repository.ResevationRepository;
+import com.kush.ServiceBookingSystem.repository.ReviewRepository;
 import com.kush.ServiceBookingSystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ import com.kush.ServiceBookingSystem.entity.Ad;
 import com.kush.ServiceBookingSystem.enums.ReviewStatus;
 import com.kush.ServiceBookingSystem.enums.ReservationStatus;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,6 +33,9 @@ public class ClientServiceImpl implements ClientService {
 
     @Autowired
     private ResevationRepository resevationRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     public List<AdDTO> getAllAds(){
         return adRepository.findAll().stream().map(Ad::getAdDto).collect(Collectors.toList());
@@ -59,6 +66,9 @@ public class ClientServiceImpl implements ClientService {
         AdDetailsForClientDTO adDetailsForClientDTO=new AdDetailsForClientDTO();
         if(optionalAd.isPresent()){
             adDetailsForClientDTO.setAdDTO(optionalAd.get().getAdDto());
+
+            List<Review> reviewList = reviewRepository.findAllByAdId(adId);
+            adDetailsForClientDTO.setReviewDTOList(reviewList.stream().map(Review::getDto).collect(Collectors.toList()));
         }
         return adDetailsForClientDTO;
     }
@@ -66,5 +76,31 @@ public class ClientServiceImpl implements ClientService {
         return resevationRepository.findAllByUserId(userId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
 
     }
+
+
+    public Boolean giveReview (ReviewDTO reviewDTO) {
+        Optional<User> optionalUser = userRepository.findById(reviewDTO.getUserId());
+        Optional<Reservation> optionalBooking = resevationRepository.findById(reviewDTO.getBookId());
+        if (optionalUser.isPresent() && optionalBooking.isPresent()){
+            Review review = new Review();
+            review.setReviewDate(new Date());
+            review.setReview (reviewDTO.getReview());
+            review.setRating (reviewDTO.getRating());
+
+            review.setUser(optionalUser.get());
+            review.setAd (optionalBooking.get().getAd());
+
+            reviewRepository.save(review);
+
+            Reservation booking = optionalBooking.get();
+            booking.setReviewStatus (ReviewStatus.TRUE);
+
+            resevationRepository.save(booking);
+            return true;
+        }
+        return false;
+    }
+
+
 
 }

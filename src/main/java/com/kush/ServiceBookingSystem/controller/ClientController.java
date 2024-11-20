@@ -2,6 +2,7 @@ package com.kush.ServiceBookingSystem.controller;
 
 
 import com.kush.ServiceBookingSystem.dto.ReservationDTO;
+import com.kush.ServiceBookingSystem.dto.ReviewDTO;
 import com.kush.ServiceBookingSystem.services.client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,6 +44,16 @@ public class ClientController {
     @GetMapping("/my-bookings/{userId}")
     public ResponseEntity<?> getAllBookingsByUserId(@PathVariable Long userId){
         return ResponseEntity.ok(clientService.getAllBookingsByUserId(userId));
+    }
+
+    @PostMapping("/review")
+    public ResponseEntity<?> giveReview(@RequestBody ReviewDTO reviewDTO){
+        Boolean success=clientService.giveReview(reviewDTO);
+        if(success){
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }
 

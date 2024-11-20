@@ -15,7 +15,8 @@
             <td style="font-weight: 600;">{{booking.reservationStatus}}</td>
             <span *ngIf="booking.reviewStatus == 'FALSE'">
                 <td>
-                    <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger>Review</button>
+                    <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger
+                    routerLink="/client/review/{{booking.id}}">Review</button>
                 </td>
             </span>
         </tr>

@@ -40,6 +40,13 @@ export class ClientService {
     })
   }
 
+  giveReview(reviewDTO:any):Observable<any>{
+    
+    return this.http.post(BASIC_URL+ `api/client/review`,reviewDTO,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
   getMyBookings():Observable<any>{
     const userId=UserStorageService.getUserId()
     return this.http.get(BASIC_URL+ `api/client/my-bookings/${userId}`,{
