@@ -1,51 +1,103 @@
-.container{
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    background-color: #121212;
-    font-family: 'Arial',sans-serif;
-}
-
-.section{
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    padding: 40px;
-    max-width: 400px;
-    width: 90%;
-}
-
-.header{
-    margin-bottom: 20px;
-}
-
-h1{
-    font-size: 24px;
-    color: #333;
-}
-
-p{
-    font-size: 16px;
-    color: #666;
-}
-
-.buttons{
-    display: flex;
-    flex-direction: column;
-    gap:20px
-}
-
-button{
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #001529;
-}
-
-button:hover{
-    background-color: #1890ff;
-    border-color: #1890ff;
+    height: 100vh;
+    background: linear-gradient(180deg, #7329ac, #1b0b42);
     color: #fff;
-}
+  }
+  
+  .container {
+    background-color: #2d2d3d;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffae42;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    background-color: #297eff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    padding-bottom: 35px;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .btn:hover {
+    background-color: #0057d8;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+      padding: 20px;
+    }
+
+    .container h1 {
+      font-size: 1.5rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+    }
+
+    .btn {
+      font-size: 1rem;
+      padding: 8px;
+      padding-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px;
+    }
+
+    .container h1 {
+      font-size: 1.2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    .btn {
+      font-size: 0.9rem;
+      padding: 6px;
+      
+    }
+  }
