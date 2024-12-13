@@ -46,6 +46,11 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getAllBookingsByUserId(userId));
     }
 
+    @DeleteMapping("/my-bookings/{bookingId}")
+    public ResponseEntity<?> deleteBookingsByUserId(@PathVariable Long bookingId){
+        return ResponseEntity.ok(clientService.deleteBooking(bookingId));
+    }
+
     @PostMapping("/review")
     public ResponseEntity<?> giveReview(@RequestBody ReviewDTO reviewDTO){
         Boolean success=clientService.giveReview(reviewDTO);

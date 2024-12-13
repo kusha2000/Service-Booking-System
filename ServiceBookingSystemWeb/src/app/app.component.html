@@ -2,7 +2,7 @@
 <div *ngIf="isClientLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" style="background-color: #18253c;">
     <div>
-      <h2 style="color: white;padding-left: 10px;">Service Booking System</h2>
+      <h2 class="skillSync">SkillSync</h2>
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/client/dashboard" routerLinkActive="active">Services</a>
@@ -23,12 +23,13 @@
       </li>
     </ul>
   </nz-sider>
+
 </div>
 
 <div *ngIf="isCompanyLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" style="background-color: #18253c;">
     <div>
-      <h2 style="color: white;padding-left: 10px;">Service Booking System</h2>
+      <h2 class="skillSync">SkillSync</h2>
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
@@ -56,3 +57,19 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h2 class="skillSync">SkillSync</h2>
+    </div>
+    <div class="footer-middle">
+      <p>&copy; 2025 SkillSync. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> |
+      <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>

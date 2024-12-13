@@ -13,10 +13,17 @@ export class ClientService {
 
   constructor(private http:HttpClient) { }
 
-  getAllAds():Observable<any>{
-    return this.http.get(BASIC_URL+ `api/client/ads`,{
-      headers:this.createAuthorizationHeader()
-    })
+  getAllAds():Observable<any>{ 
+    const adsObservable = this.http.get(BASIC_URL + `api/client/ads`, {
+      headers: this.createAuthorizationHeader()
+    });
+  
+    // Log the ads before returning the observable
+    adsObservable.subscribe(ads => {
+      console.log('Ads:', ads);
+    });
+  
+    return adsObservable;
   }
 
   searchAdByName(name:any):Observable<any>{
@@ -36,6 +43,12 @@ export class ClientService {
   bookService(bookDTO:any):Observable<any>{
     
     return this.http.post(BASIC_URL+ `api/client/book-service`,bookDTO,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+  deleteService(bookId:any):Observable<any>{
+    
+    return this.http.delete(BASIC_URL+ `api/client/my-bookings/${bookId}`,{
       headers:this.createAuthorizationHeader()
     })
   }

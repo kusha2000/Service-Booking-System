@@ -60,6 +60,14 @@ public class ClientServiceImpl implements ClientService {
         }
         return false;
     }
+    public Boolean deleteBooking(Long bookingId) {
+        Optional<Reservation> optionalBooking = resevationRepository.findById(bookingId);
+        if (optionalBooking.isPresent()) {
+            resevationRepository.delete(optionalBooking.get());
+            return true;
+        }
+        return false;
+    }
 
     public AdDetailsForClientDTO getAdDetailsByAdId(Long adId){
         Optional<Ad> optionalAd = adRepository.findById(adId);
@@ -74,7 +82,6 @@ public class ClientServiceImpl implements ClientService {
     }
     public List<ReservationDTO> getAllBookingsByUserId(Long userId){
         return resevationRepository.findAllByUserId(userId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
-
     }
 
 

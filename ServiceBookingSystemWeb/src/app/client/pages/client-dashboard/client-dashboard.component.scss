@@ -1,3 +1,13 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+  background-color: #0e1523;
+  min-height: 100%;
+}
+
+// ===============
+// Heading Section
+// ===============
 
 .headings{
   text-align: center;
@@ -19,12 +29,11 @@
   left:0;
   width:100%;
   height: 100%;
-  color:#f39c12;
+  color:#7329ac;
   -webkit-text-stroke: 0vw var(--move-text);
-  border-right: 2px solid #f39c12;
+  border-right: 2px solid #7329ac;
   overflow: hidden;
   animation: animate 6s linear infinite;
-
 }
 @keyframes animate{
   0%,10%,100%{
@@ -36,10 +45,16 @@
 }
 /*heading*/
 
+
+// =================
+// Hero Image Section
+// ==================
+.containers{
+  height: 75vh;
+}
+
 .containers .content .text-box{
   color:#fff;
-  
-  
 }
 .containers .content .text-box h1{
   font-size: 10rem;
@@ -51,12 +66,22 @@
   background-position: 0 0;
   animation: back 20s linear infinite;
 }
+.img{
+  margin-left: 100px;
+}
+.imgHero{
+  background: url(./hero.png);
+  background-position: center;
+  background-size: contain; 
+  height: 600px;             
+  width: 600px;              
+  margin: 0;
+  overflow: hidden;   
+}
 
 .containers .content p{
-
   margin-bottom: 5rem;
   padding-left: 20px;
-  
 }
 
 @keyframes back{
@@ -70,7 +95,6 @@
   border: .2rem solid #fff;
 }
 .containers .content .hero-btn:hover{
-
   background-color:#fff;
   color: #444;
 }
@@ -82,9 +106,7 @@
 
 
 .containers{
-  background: linear-gradient(116deg, #ff9800 -15.11%, #ffb74d 51.46%, #e65100 113.99%);
-
-
+  background: linear-gradient(180deg, #7329ac, #1b0b42);
   margin:0 auto;
   padding: 80px;
 }
@@ -145,19 +167,55 @@ a{
   text-decoration: none;
 }
 
-.bg {
-  margin: 0;
-  padding: 0;
-  background-color: #0e1523;
-  height: 100%;
+@media (max-width: 768px) {
+
+  .containers{
+    height: 60vh;
+  }
+  .subText{
+    font-size: 14px;
+    margin-top: -50px;
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column; 
+  }
+  .content{
+    margin-top: -70px;
+  }
+  .img{
+    margin-top: -80px;
+    margin-left: 10px;
+  }
+  .imgHero{
+    height: 250px;             
+    width: 250px;              
+
+  }
+  
+
+
+}
+
+@media (max-width: 480px) { 
+  
 }
 
 
-/*This is css styles for one product
-  --------------------------------*/
+// Hero Image Section finished
+
+
+
+
+// ===================
+// One Product Section
+// ====================
+
 
 .slider-card {
   margin: 0 auto;
+  padding-bottom: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 27rem);
   gap: 1.5rem;
@@ -209,14 +267,9 @@ a{
 }
 .slider-card .card .del-cart:hover {
   color: #e74c3c;
-  background-color: #f39c12;
+  background-color: #7329ac;
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    min-width: 21rem;
-  }
-}
 
 .card:not(:first-child) {
   margin-left: 2rem;
@@ -227,7 +280,7 @@ a{
 }
 
 .card:hover {
-  border: 0.1rem solid #f39c12;
+  border: 0.1rem solid #7329ac;
   transform: scale(1.05);
 }
 
@@ -237,10 +290,8 @@ a{
   left: 0;
   width: 100%;
   height: 100%;
-
   overflow: hidden;
   border-radius: inherit;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -251,7 +302,7 @@ a{
 .card-content::after {
   position: absolute;
   content: "";
-  background-color: #f39c12;
+  background-color: #7329ac;
   border-radius: 50%;
   transition: 0.5s ease-in-out;
 }
@@ -295,7 +346,7 @@ a{
   text-transform: capitalize;
   transition-delay: 0.1s;
   text-align: center;
-  color: #f39c12;
+  color: #7329ac;
 }
 .card-title2 {
   padding: 0.6rem;
@@ -303,7 +354,7 @@ a{
   text-transform: capitalize;
   transition-delay: 0.1s;
   text-align: center;
-  color: #f39c12;
+  color: #7329ac;
 }
 
 .card-title span{
@@ -318,9 +369,7 @@ a{
 
 .card-body {
   width: 100%;
-
   align-items: center;
-
   transition-delay: 0.2s;
 }
 
@@ -345,26 +394,16 @@ a{
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border: 0.2rem solid #444;
-  padding: 3rem 1rem;
+  width: 170px;
+  height: 40px;
   background-color: #f39c12;
   border-radius: 2rem;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+  z-index: 100;
+  text-align: center;
 }
-.card .card-content .category-value-cart {
-  position: absolute;
-  top: 5rem;
-  left: 0;
-  font-size: 1.5rem;
-  border: 0.2rem solid #444;
-  padding: 3rem 1rem;
-  background-color: #f39c12;
-  border-radius: 2rem;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
+
 
 .btn-card {
   padding: 10px 30px;
@@ -378,28 +417,49 @@ a{
   font-size: 20px;
 }
 .btn-card:hover {
-  background-color: #444;
+  background-color: #1b0b42;
   color: #fff;
   cursor: pointer;
 }
 
 .btn-success-card {
-  background-color: #f39c12;
+  background-color: #7329ac;
 }
 .btn-success-card:hover {
-  border: 0.1rem solid #f39c12;
+  border: 0.1rem solid #7329ac;
 }
 
 .btn-border-card {
-  border: 0.1rem solid #f39c12;
+  border: 0.1rem solid #7329ac;
 }
 .btn-border-card:hover {
   border: 0.1rem solid #444;
 }
 
+
 @media(max-width:991px){
-  html{
-      font-size:55%;
+  .containers{
+    height: 60vh;
+  }
+  .subText{
+    font-size: 14px;
+    margin-top: -50px;
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column; 
+  }
+  .content{
+    margin-top: -70px;
+  }
+  .img{
+    margin-top: -80px;
+    margin-left: 10px;
+  }
+  .imgHero{
+    height: 250px;             
+    width: 250px;
   }
 }
 @media(max-width:768px){
@@ -413,10 +473,9 @@ a{
 
   }
   .containers .content p{
-
     font-size: 1rem;
-    
   }
+
 }
 @media(max-width:450px){
   html{
@@ -442,5 +501,182 @@ a{
     font-size: 1rem;
     
   }
+  .slider-card {
+    margin: auto;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .card {
+    width: 13rem;
+    height: 17rem;
+  }
+
+  .card-content::before {
+    width: 6rem;
+    height: 5rem;
+    top: -9%;
+    right: -9%;
+  }
   
+  .card-content::after {
+    width: 2rem;
+    height: 2rem;
+  }
+  .card-img {
+    width: 200px;
+    height: 120px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-title2 {
+    font-size: 1.5rem;
+  }
+  .btn-card {
+    padding: 30px;
+    padding-top: 1px;
+    font-size: 16px;
+  }
+  .card-content {
+    justify-content: flex-start;
+  }
+  .headings h3{
+
+    font-size: 2rem;
+  
+  }
+  
+}
+
+
+// ===============
+// Heading Section
+// ===============
+
+.contact-section {
+  background: linear-gradient(180deg, #7329ac, #1b0b42);
+  color: white;
+  padding: 50px 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.container {
+  background-color: #2d2d3d;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  width: 700px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #a772cf;
+  background: #f5f2fa;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  background: #a772cf;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #c28ce2;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 8px;
+    padding-bottom: 40px;
+  }
+  input {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .container h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+  input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .card .card-content .category-value {
+    font-size: 0.8rem;
+    width: 120px;
+    height: 30px;
+  }
 }

@@ -1,5 +1,5 @@
 .bg {
-  background-color: #121212;
+  background-color: #0e1523;
   color: #f8f8f8;
 }
 
@@ -10,125 +10,258 @@
   padding: 20px;
   margin-left: 30px;
   min-height: 90vh;
+}
 
-  .top-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.ad-detail {
+  width: 65%;
+  margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 30px;
+  background: linear-gradient(240deg, #7329ac, #1b0b42);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ad-detail img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.ad-detail h2 {
+  font-size: 24px;
+  color: #00bcd4;
+}
+
+.ad-detail h5 {
+  font-size: 16px;
+  color: #f8f8f8;
+}
+
+.book-service {
+  margin-top: 1%;
+  width: 30%;
+  padding-bottom: 40px;
+  height: 50%;
+  // background: linear-gradient(135deg, #7329ac, #1b0b42);
+  background: linear-gradient(45deg, #ff4b5c, #9b2c79);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: pulse 1.5s infinite;
+}
+
+.book-service h2 {
+  font-size: 24px;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.nz-form .nz-form-control {
+  width: 100%;
+}
+
+.nz-form .nz-date-picker {
+  width: 100%;
+}
+
+.book-button {
+  margin-top: 10px;
+}
+
+.reviews-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: linear-gradient(176deg, #7329ac, #1b0b42);
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 25px;
+}
+
+.category-value {
+  font-size: 1.3rem;
+  border: 0.2rem solid #444;
+  background-color: #f39c12;
+  border-radius: 2rem;
+  z-index: 100;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.company-value {
+  font-size: 1.3rem;
+  border: 0.2rem solid white;
+  background-color: #a772cf;
+  border-radius: 2rem;
+  z-index: 100;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.nz-card {
+  background-color: transparent;
+  border: none;
+}
+
+.review-card-body {
+  background-color: #2d2d3d;
+  padding: 20px;
+  width: 100%;
+}
+
+p {
+  font-size: 16px;
+  color: white;
+  line-height: 1.6;
+}
+
+p strong {
+  font-weight: bold;
+  color: #76c7c0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #f4f4f4;
+}
+
+.nz-rate {
+  margin-left: 10px;
+  color: #ffb74d;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+@media (max-width: 992px) {
+  .ad-detail {
     width: 100%;
-    flex-wrap: wrap;
+    margin-right: 0;
+  }
+  .book-service {
+    width: 80%;
+    margin-top: 20px;
+  }
+}
 
-    .ad-detail {
-      width: 65%;
-      margin-right: 20px;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 30px;
-      background-color: #212121;
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center;
+@media (max-width: 768px) {
+  .ad-detail {
+    width: 100%;
+  }
+  .book-service {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .reviews-section {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .ad-detail {
+    display: flex;
+    flex-direction: column;
+  }
+  .company-value {
+    writing-mode: horizontal-tb;
+    text-orientation: upright;
+  }
+  
+  
+}
 
-      img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
-
-      h2 {
-        font-size: 24px;
-        color: #00bcd4;
-      }
-
-      h5 {
-        font-size: 16px;
-        color: #f8f8f8;
-      }
-    }
-
-    .book-service {
-      margin-top: 1%;
-      width: 30%;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 20px;
-      background-color: #212121;
-      border-radius: 20px;
-      padding-bottom: 40px;
-      height: 50%;
-
-      h2 {
-        font-size: 24px;
-        color: #00bcd4;
-        margin-bottom: 20px;
-      }
-
-      nz-form {
-        .nz-form-control {
-          width: 100%;
-
-          nz-date-picker {
-            width: 100%;
-          }
-        }
-
-        .book-button {
-          margin-top: 10px;
-        }
-      }
-    }
+@media (max-width: 576px) {
+  .company-value,
+  .category-value {
+    font-size: 1rem;
+    max-width: 150px;
+    margin-bottom: 15px;
   }
 
-  .reviews-section {
+  .ad-detail img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ad-detail h2 {
+    font-size: 20px;
+  }
+
+  .ad-detail h5 {
+    font-size: 14px;
+  }
+
+  .book-service {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    padding: 0 20px;
+    padding: 15px;
+  }
 
-    margin: 0 auto;
+  .review-card {
+    padding: 15px;
+  }
 
-    .review-card {
-      background-color: #2b2b2b;
-      padding: 25px;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-      overflow: hidden;
-
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 25px;
-      }
-
-      .nz-card {
-        background-color: transparent;
-        border: none;
-      }
-
-      p {
-        font-size: 16px;
-        color: black;
-        line-height: 1.6;
-
-        strong {
-          font-weight: bold;
-          color: #76c7c0;
-        }
-
-        &.rating {
-          display: flex;
-          align-items: center;
-          font-size: 18px;
-          color: #f4f4f4;
-        }
-
-        .nz-rate {
-          margin-left: 10px;
-          color: #ffb74d;
-        }
-      }
-    }
+  p {
+    font-size: 14px;
   }
 }

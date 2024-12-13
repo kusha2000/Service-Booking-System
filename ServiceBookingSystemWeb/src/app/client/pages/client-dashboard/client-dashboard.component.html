@@ -1,13 +1,15 @@
-<div class="bg">
+<div class="wrapper">
   <section class="containers hero row">
     <div class="content">
       <div class="text-box">
         <h1>SkillSync</h1>
       </div>
-      <p>Syncing clients with premium services efficiently.</p>
+      <p class="subText">Syncing clients with premium services efficiently.</p>
     </div>
     <div class="img">
-      <img src="./images.jpg" alt="" />
+      <div class="imgHero">
+      </div>
+        
     </div>
   </section>
 
@@ -18,16 +20,15 @@
   <section class="slider-card">
     <div class="card" *ngFor="let ad of ads">
       <div class="card-content">
-        <!-- <span class="category-value">category</span> -->
+        <span class="category-value">{{ ad.companyName}}</span>
         <img [src]="updateImg(ad.returnedImg)" class="card-img" />
         <h1 class="card-title">
           <span style="cursor: pointer" [routerLink]="'/client/ad/' + ad.id">
             {{ ad.serviceName }}
           </span>
-          <!-- <a href="view_page.php?pid=<?php echo $fetch_products['id'];?>">{{ ad.serviceName }}</a> -->
         </h1>
 
-        <p class="card-title">Rs{{ ad.price }}.00</p>
+        <p class="card-title">Rs.{{ ad.price }}.00</p>
 
         <div class="card-footer">
           <button
@@ -43,4 +44,66 @@
       </div>
     </div>
   </section>
+  <section class="headings">
+    <h3 data-text="Featured Services">Featured Services</h3>
+  </section>
+
+  <section class="slider-card">
+    <div class="card" *ngFor="let ad of ads">
+      <div class="card-content">
+        <span class="category-value">{{ ad.companyName}}</span>
+        <img [src]="updateImg(ad.returnedImg)" class="card-img" />
+        <h1 class="card-title">
+          <span style="cursor: pointer" [routerLink]="'/client/ad/' + ad.id">
+            {{ ad.serviceName }}
+          </span>
+        </h1>
+
+        <p class="card-title">Rs.{{ ad.price }}.00</p>
+
+        <div class="card-footer">
+          <button
+            nzSize="small"
+            nz-button
+            nzType="primary"
+            routerLink="/client/ad/{{ ad.id }}"
+            class="btn-card btn-success-card"
+          >
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-section">
+    <div class="container">
+      <h2 style="color: white;">Contact Us</h2>
+      <p>If you have any questions, feel free to reach out to us. We'd love to hear from you!</p>
+  
+      <form nz-form (ngSubmit)="submitContact()">
+        <div class="form-group">
+          <label for="name" style="color: white;">Your Name</label>
+          <input type="text" id="name" name="name" required style="color: black;" />
+        </div>
+  
+        <div class="form-group">
+          <label for="email" style="color: white;">Your Email</label>
+          <input type="email" id="email" name="email" required  style="color: black;"/>
+        </div>
+  
+        <div class="form-group">
+          <label for="message" style="color: white;">Your Message</label>
+          <textarea id="message" name="message" rows="4" required style="color: black;"></textarea>
+        </div>
+  
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+  
+
 </div>
+
+
+
