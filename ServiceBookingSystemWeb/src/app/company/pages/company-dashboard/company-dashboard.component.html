@@ -1,37 +1,70 @@
 <div class="bg">
-    
-<nz-table #basicTable [nzData]="bookings" [nzPageSize]="20" [nzShowPagination]="'false'" style="padding: 20px;"> 
-    <thead>
-        <tr>
-            <th class="heading">Client Name</th>
-            <th class="heading">Service</th>
-            <th class="heading">Date</th> 
-            <th class="heading">Status</th>
-            <th class="heading">Action</th> 
-        </tr>
-    </thead> 
-    <tbody>
-        <tr *ngFor="let booking of basicTable.data">
-            <td style="font-weight: 600">{{ booking.userName }}</td>
-            <td style="font-weight: 600">{{ booking.serviceName }}</td>
-            <td>{{ booking.bookDate | date: "dd/MM/yyyy" }}</td>
-            <td style="font-weight: 600">{{ booking.reservationStatus }}</td>
-            <td>
-                <!-- <span *ngIf="booking.reservationStatus === 'PENDING'"> -->
-                <button style="margin-left: 10px" nzSize="small" nz-button nzType="primary" 
-                (click)="changeBookingStatus(booking.id,'Approve')"> Approve
-                </button>
-                <button style="margin-left: 10px" nzSize="small" nz-button nzType="primary" nzDanger
-                (click)="changeBookingStatus(booking.id,'Reject')"> Reject
-                </button>
-                <button style="margin-left: 10px" class="green-button" nzSize="small" nz-button nzType="primary"
-                (click)="changeBookingStatus(booking.id, 'Pending')"> Pending
-              </button>
-              
-                <!-- </span> -->
-            </td>
-        </tr>
-    </tbody>
-</nz-table>
+    <div class="container">
+      <div class="header">
+        <h1>Bookings</h1>
+      </div>
 
-</div>
+      <div class="no-bookings" *ngIf="bookings.length === 0">
+        <p>No bookings available at the moment.</p>
+      </div>
+
+      <div class="booking-list" *ngIf="bookings.length > 0">
+        <div class="booking-card" *ngFor="let booking of bookings">
+          <div class="booking-content">
+            <div class="content-topic">
+              <span class="label">Client Name</span>
+              <span class="label">Service</span>
+              <span class="label">Date</span>
+              <span class="label">Status</span>
+              <span class="label">Message</span>
+            </div>
+            <div class="content-details">
+              <span class="value">: {{ booking.userName }}</span>
+              <span class="value">: {{ booking.serviceName }}</span>
+              <span class="value">: {{ booking.bookDate | date: 'dd/MM/yyyy' }}</span>
+              <span class="value">: {{ booking.reservationStatus }}</span>
+              <span class="value">: {{ booking.message }}</span>
+            </div>
+          </div>
+          <div class="mobile-book">
+            
+            <div class="booking-row">
+              <span class="label">Client Name:</span>
+              <span class="value">{{ booking.userName }}</span>
+            </div>
+            <div class="booking-row">
+              <span class="label">Service:</span>
+              <span class="value">{{ booking.serviceName }}</span>
+            </div>
+            <div class="booking-row">
+              <span class="label">Date:</span>
+              <span class="value">{{ booking.bookDate | date: 'dd/MM/yyyy' }}</span>
+            </div>
+            <div class="booking-row">
+              <span class="label">Status:</span>
+              <span class="value">{{ booking.reservationStatus }}</span>
+            </div>
+            <div class="booking-row" style="display: flex;flex-direction: column;">
+              <span class="label">Message:</span>
+              <span class="value">{{ booking.message }}</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Approve')">
+                Approve
+              </button>
+              <button nz-button nzType="primary" class="orange-button" nzDanger (click)="changeBookingStatus(booking.id, 'Reject')">
+                Reject
+              </button>
+              <button class="green-button" nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Pending')">
+                Pending
+              </button>
+              <button nz-button nzType="primary" nzDanger  (click)="deleteBooking(booking.id)">
+                  Delete
+                </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -215,9 +215,9 @@ a{
 
 .slider-card {
   margin: 0 auto;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 27rem);
+  grid-template-columns: repeat(auto-fit, 20rem);
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: center;
@@ -271,13 +271,6 @@ a{
 }
 
 
-.card:not(:first-child) {
-  margin-left: 2rem;
-}
-
-.card:first-child {
-  margin-left: 0.4rem;
-}
 
 .card:hover {
   border: 0.1rem solid #7329ac;
@@ -347,6 +340,10 @@ a{
   transition-delay: 0.1s;
   text-align: center;
   color: #7329ac;
+  display: -webkit-box; 
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
 }
 .card-title2 {
   padding: 0.6rem;
@@ -420,6 +417,28 @@ a{
   background-color: #1b0b42;
   color: #fff;
   cursor: pointer;
+}
+.load-btn-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.load-btn {
+  padding: 10px 30px;
+  padding-bottom: 40px;
+  background-color: #a772cf; 
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.load-btn:hover {
+  background-color: #c28ce2; 
+  color: #fff;
 }
 
 .btn-success-card {
@@ -565,6 +584,7 @@ a{
 display: flex;
 align-items: center;
 justify-content: center;
+margin-top: 20px;
 }
 
 .container {
@@ -661,6 +681,11 @@ textarea {
   .container h1 {
     font-size: 1.2rem;
   }
+  .card {
+    width: 15rem;
+    height: 17rem;
+  }
+
 
   .logo {
     font-size: 1.5rem;
@@ -675,8 +700,8 @@ textarea {
     padding: 8px;
   }
   .card .card-content .category-value {
-    font-size: 0.8rem;
-    width: 120px;
-    height: 30px;
+    font-size: 0.9rem;
+    width: 130px;
+    height: 33px;
   }
 }

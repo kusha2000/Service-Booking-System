@@ -23,6 +23,8 @@ public class Reservation {
 
     private Date bookDate;
 
+    private String message;
+
     @ManyToOne(fetch= FetchType.LAZY,optional=false)
     @JoinColumn(name="user_id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -44,6 +46,7 @@ public class Reservation {
         dto.setId(id);
         dto.setServiceName(ad.getServiceName());
         dto.setBookDate(bookDate);
+        dto.setMessage(message);
         dto.setReservationStatus(reservationStatus);
         dto.setReviewStatus(reviewStatus);
 

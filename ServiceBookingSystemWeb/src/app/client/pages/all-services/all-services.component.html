@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <section class="headings">
+      <h3 data-text="All Services">All Services</h3>
+    </section>
+  
+    <section class="slider-card">
+      <div class="card" *ngFor="let ad of ads">
+        <div class="card-content">
+          <span class="category-value">{{ ad.companyName}}</span>
+          <img [src]="updateImg(ad.returnedImg)" class="card-img" />
+          <h1 class="card-title">
+            <span style="cursor: pointer" [routerLink]="'/client/ad/' + ad.id">
+              {{ ad.serviceName }}
+            </span>
+          </h1>
+  
+          <p class="card-title">Rs.{{ ad.price }}.00</p>
+  
+          <div class="card-footer">
+            <button
+              nzSize="small"
+              nz-button
+              nzType="primary"
+              routerLink="/client/ad/{{ ad.id }}"
+              class="btn-card btn-success-card"
+            >
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+
+    
+  
+  </div>
+  
+  
+  
+  

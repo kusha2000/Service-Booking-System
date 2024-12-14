@@ -42,5 +42,23 @@ export class CompanyDashboardComponent {
         );
       })
   }
+  deleteBooking(bookingId: number) {
+    this.companyService.deleteService(bookingId).subscribe(res=>{
+      this.notification
+      .success(
+        'SUCCESS',
+        'Review posted successfully',
+        {nzDuration:5000}
+      );
+      this.getAllAdBookings();
+    },error=>{
+      this.notification
+      .error(
+        'ERROR',
+        `${error.message}`,
+        {nzDuration:5000}
+      );
+    });
+  }
 
 }

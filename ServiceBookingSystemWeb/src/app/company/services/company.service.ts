@@ -53,6 +53,12 @@ export class CompanyService {
       headers:this.createAuthorizationHeader()
     })
   }
+  deleteService(bookId:any):Observable<any>{
+    
+    return this.http.delete(BASIC_URL+ `api/company/bookings/${bookId}`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
 
   changeBookingStatus(bookingId:number,status:string):Observable<any>{
     return this.http.get(BASIC_URL+ `api/company/bookings/${bookingId}/${status}`,{

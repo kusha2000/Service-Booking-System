@@ -39,6 +39,18 @@ export class ClientService {
       headers:this.createAuthorizationHeader()
     })
   }
+  getTop8AdsByReservationCount():Observable<any>{
+   
+    return this.http.get(BASIC_URL+ `api/client/top-ads`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+  getLatestAds():Observable<any>{
+   
+    return this.http.get(BASIC_URL+ `api/client/latest-ads`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
 
   bookService(bookDTO:any):Observable<any>{
     

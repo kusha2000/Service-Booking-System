@@ -60,5 +60,14 @@ public class ClientController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    @GetMapping("/top-ads")
+    public ResponseEntity<?> getTop8AdsByReservationCount() {
+        return ResponseEntity.ok(clientService.getTop8AdsByReservationCount());
+    }
+    @GetMapping("/latest-ads")
+    public ResponseEntity<?> getLatestAds() {
+        return ResponseEntity.ok(clientService.getLatestAds());
+    }
 }
 

@@ -34,15 +34,29 @@
               <nz-form-item>
                 <nz-form-label [nzSpan]="24" nzFor="bookDate"
                   ><span style="color: white"
-                    >Date of Booking</span
-                  ></nz-form-label
+                    >Date of Booking:&nbsp;</span
+                  >
+                  <nz-form-control [nzSpan]="24">
+                    <nz-date-picker
+                      formControlName="bookDate"
+                      name="bookDate"
+                      id="bookDate"
+                    ></nz-date-picker>
+                  </nz-form-control>
+                  </nz-form-label
+                >
+                
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="24" nzFor="bookDate"
+                  ><span style="color: white"
+                    >Message:&nbsp;</span
+                  >
+
+                  </nz-form-label
                 >
                 <nz-form-control [nzSpan]="24">
-                  <nz-date-picker
-                    formControlName="bookDate"
-                    name="bookDate"
-                    id="bookDate"
-                  ></nz-date-picker>
+                  <textarea rows="5" nz-input placeholder="Add Your Message and Contact Details" formControlName="message" name="message" id="message" ></textarea>
                 </nz-form-control>
               </nz-form-item>
             </div>

@@ -11,6 +11,8 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class ClientDashboardComponent {
 
   ads:any=[];
+  topAds:any=[];
+  latestAds:any=[];
   adsOwners:any=[];
   validateForm:FormGroup;
 
@@ -21,6 +23,16 @@ export class ClientDashboardComponent {
       this.ads=res;
     })
   }
+  getTopAdsByReservationCount(){
+    this.clientService.getTop8AdsByReservationCount().subscribe(res=>{
+      this.topAds=res;
+    })
+  }
+  getLatestAdvertisements(){
+    this.clientService.getLatestAds().subscribe(res=>{
+      this.latestAds=res;
+    })
+  }
 
 
   ngOnInit(){
@@ -28,6 +40,8 @@ export class ClientDashboardComponent {
       service:[null,[Validators.required]],
     })
     this.getAllAds();
+    this.getTopAdsByReservationCount();
+    this.getLatestAdvertisements();
   }
 
   searchAdByName(){

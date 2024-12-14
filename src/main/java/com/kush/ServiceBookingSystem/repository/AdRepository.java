@@ -15,4 +15,7 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
 
     List<Ad> findAllByServiceNameContaining(String name);
 
+    @Query(value = "SELECT * FROM ads ORDER BY id DESC LIMIT 8;", nativeQuery = true)
+    List<Ad> LatestAdIds();
+
 }

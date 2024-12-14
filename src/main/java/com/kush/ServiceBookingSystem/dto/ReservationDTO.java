@@ -14,6 +14,8 @@ public class ReservationDTO {
 
     private Date bookDate;
 
+    private String message;
+
     private String serviceName;
 
     private ReservationStatus reservationStatus;
@@ -27,5 +29,6 @@ public class ReservationDTO {
     private Long companyId;
 
     private Long adId;
+
 
 }

@@ -1,9 +1,8 @@
-<div style="background-color: #121212;">
-    <div class="parent">
-        <div class="child">
-            <div nz-row class="imgDiv">
-                <h2 style="margin-left:230px">Create Ad</h2>
-            </div>
+<div class="wrapper">
+    <div class="container">
+        <div>
+            <h1 class="header">Create a AD</h1>
+          </div>
 
             <form nz-form [formGroup]="validateForm" (ngSubmit)="postAd()">
                 <div nz-row>
@@ -12,14 +11,14 @@
                             <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
                                 <img class="profile" [src]="imagePreview" alt="profile"/>
                             </label>
-                            <input type="file" nz-button nzType="primary" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)"/>
+                            <input type="file" nz-button nzType="primary" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)" style="color: white;"/>
                             <button nz-button nzShape="circle"></button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service Name Field -->
-                <div nz-row style="margin-top: 20px;">
+                <div nz-row >
                     <div nz-col [nzSpan]="24">
                         <nz-form-item>
                             <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input is Required">
@@ -30,7 +29,7 @@
                 </div>
 
                 <!-- Price Field -->
-                <div nz-row style="margin-top: 20px;">
+                <div nz-row>
                     <div nz-col [nzSpan]="24">
                         <nz-form-item>
                             <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input is Required">
@@ -41,24 +40,24 @@
                 </div>
 
                 <!-- Description Field -->
-                <div nz-row style="margin-top: 20px;">
+                <div nz-row>
                     <div nz-col [nzSpan]="24">
                         <nz-form-item>
                             <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input is Required">
-                                <textarea rows="2" nz-input placeholder="Description" formControlName="description" ></textarea>
+                                <textarea rows="5" nz-input placeholder="Description" formControlName="description" ></textarea>
                             </nz-form-control>
                         </nz-form-item>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
-                <div nz-row style="margin-top: 20px;">
-                    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+                <div nz-row >
+                    <button nz-button class="btn" [nzType]="'primary'">
                         Add
                     </button>
                 </div>
 
             </form>
-        </div>
+
     </div>
 </div>

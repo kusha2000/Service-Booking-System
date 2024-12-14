@@ -25,7 +25,8 @@ export class AdDetailComponent {
 
   ngOnInit(){
     this.validateForm=this.fb.group({
-      bookDate:[null,[Validators.required]]
+      bookDate:[null,[Validators.required]],
+      message:[null,[Validators.required]]
     })
     this.getAdDetailsByAdId();
   }
@@ -42,9 +43,13 @@ export class AdDetailComponent {
   bookService(){
     const bookServiceDTO = {
       bookDate:this.validateForm.get(['bookDate']).value,
+      message:this.validateForm.get(['message']).value,
       adId:this.adId,
       userId:UserStorageService.getUserId()
     }
+
+    console.log(bookServiceDTO);
+    
 
     this.clientService.bookService(bookServiceDTO).subscribe(res=>{
       this.notification

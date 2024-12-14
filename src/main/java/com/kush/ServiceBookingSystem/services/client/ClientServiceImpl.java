@@ -51,6 +51,7 @@ public class ClientServiceImpl implements ClientService {
         if(optionalAd.isPresent() && optionalUser.isPresent()){
             Reservation reservation = new Reservation();
             reservation.setBookDate (reservationDTO.getBookDate());
+            reservation.setMessage(reservationDTO.getMessage());
             reservation.setReservationStatus (ReservationStatus.PENDING);
             reservation.setUser(optionalUser.get());
             reservation.setAd (optionalAd.get());
@@ -80,6 +81,24 @@ public class ClientServiceImpl implements ClientService {
         }
         return adDetailsForClientDTO;
     }
+
+    public List<AdDTO> getTop8AdsByReservationCount() {
+        List<Long> topAdIds = resevationRepository.findTop8AdIdsByCount();
+
+        List<Ad> ads = adRepository.findAllById(topAdIds);
+
+        List<Ad> orderedAds = topAdIds.stream()
+                .map(id -> ads.stream().filter(ad -> ad.getId().equals(id)).findFirst().orElse(null))
+                .collect(Collectors.toList());
+
+        return orderedAds.stream().map(Ad::getAdDto).collect(Collectors.toList());
+    }
+    public List<AdDTO> getLatestAds() {
+
+        return adRepository.LatestAdIds().stream().map(Ad::getAdDto).collect(Collectors.toList());
+
+    }
+
     public List<ReservationDTO> getAllBookingsByUserId(Long userId){
         return resevationRepository.findAllByUserId(userId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
     }

@@ -68,6 +68,10 @@ public class CompanyController {
     public ResponseEntity<List<ReservationDTO>> getAllAdBookings(@PathVariable Long companyId){
         return ResponseEntity.ok(companyService.getAllAdBookings(companyId));
     }
+    @DeleteMapping("/bookings/{bookingId}")
+    public ResponseEntity<?> deleteBookingsByUserId(@PathVariable Long bookingId){
+        return ResponseEntity.ok(companyService.deleteBooking(bookingId));
+    }
 
     @GetMapping("/bookings/{bookingId}/{status}")
     public ResponseEntity<?> changeBookingStatus(@PathVariable Long bookingId, @PathVariable String status){

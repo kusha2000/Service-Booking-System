@@ -77,6 +77,8 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
+
+
     public boolean deleteAd(Long adId){
         Optional<Ad> optionalAd = adRepository.findById(adId);
         if(optionalAd.isPresent()) {
@@ -88,6 +90,15 @@ public class CompanyServiceImpl implements CompanyService {
 
     public List<ReservationDTO> getAllAdBookings(Long companyId){
         return resevationRepository.findAllByCompanyId(companyId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
+    }
+
+    public Boolean deleteBooking(Long bookingId) {
+        Optional<Reservation> optionalBooking = resevationRepository.findById(bookingId);
+        if (optionalBooking.isPresent()) {
+            resevationRepository.delete(optionalBooking.get());
+            return true;
+        }
+        return false;
     }
 
     public boolean changeBookingStatus(Long bookingId,String status){

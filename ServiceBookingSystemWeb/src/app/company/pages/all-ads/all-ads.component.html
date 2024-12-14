@@ -1,28 +1,37 @@
-<div class="bg">
-    <div class="grid">
-        <div class="child" *ngFor="let ad of ads">
-            <div nz-row>
-                <div nz-col nzSpan="24">
-                    <img class="profile" [src]="updateImg(ad.returnedImg)" style="height:130px;width:100%;border-radius:10px"/>
-                </div>
-                <div nz-col nzSpan="24">
-                    <h2 style="cursor: pointer; color:#108ee9">
-                        {{ad.serviceName}}
-                    </h2>
-                    <hr>
-                    <h5 style="color: white;">
-                        Price:  <b style="color: red;"> Rs.{{ad.price}}.00</b>
-                    </h5>
-                    <h5 style="color: white;">
-                        Description: <b>{{ad.description}}</b>
-                    </h5>
-                    <hr>
-                    <div style="float: right;">
-                        <button nzSize="small" nz-button nzType="primary" routerLink="/company/update/{{ad.id}}">Update</button>
-                        <button (click)="deleteAd(ad.id)" style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" nzDanger>Delete</button>
+<div class="wrapper">
+    <section class="headings">
+        <h3 data-text="My Advertisements">My Advertisements</h3>
+      </section>
+      <div class="container" *ngIf="ads.length === 0">
+        <p class="no-bookings">You don't have any ads. Please add a new one to get started.</p>
+      </div>
+      <div class="bg">
+        <div class="grid">
+            <div class="child" *ngFor="let ad of ads">
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <img class="profile" [src]="updateImg(ad.returnedImg)" style="height:130px;width:100%;border-radius:10px"/>
+                    </div>
+                    <div nz-col nzSpan="24">
+                        <h2 style="cursor: pointer; color:#108ee9">
+                            {{ad.serviceName}}
+                        </h2>
+                        <hr>
+                        <h5 style="color: white;">
+                            Price:  <b style="color: red;"> Rs.{{ad.price}}.00</b>
+                        </h5>
+                        <h5 style="color: white;" class="description">
+                            Description: <b>{{ad.description}}</b>
+                        </h5>
+                        <hr>
+                        <div class="btn-part">
+                            <button nzSize="small" nz-button nzType="primary" routerLink="/company/update/{{ad.id}}">Update</button>
+                            <button (click)="deleteAd(ad.id)" style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" nzDanger>Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
