@@ -4,58 +4,62 @@ Skillsync is a versatile service booking system that bridges the gap between cli
 
 <h3><u>Technologies Used</u></h3>
 <ul>
-<li>Angular</li>
-<li>Spring Boot</li>
-<li>MySQL</li>
+🔹 Angular<br>
+🔹 Spring Boot<br>
+🔹 MySQL<br>
 </ul>
-<h2><u>Features</u></h2>
-<h3><u>Client Features:</u></h3>
+<h3><u>Features</u></h3>
+<h4><u>Client Features:</u></h4>
 
-Account Management:
+<h5>Account Management:</h5>
 <ul>
-<li>Register as a client or company.</li>
-<li>Secure login functionality.</li>
+✅Register as a client or company.<br>
+✅Secure login functionality.<br>
 </ul>
-Service Browsing:
+<h5>Service Browsing:</h5>
 <ul>
-<li>View the latest services, featured services, and all available services.</li>
-<li>Access full details of each service.</li>
+✅View the latest services, featured services, and all available services.<br>
+✅Access full details of each service.<br>
 </ul>
-Service Booking:
+<h5>Service Booking:</h5>
 <ul>
-<li>Book services for specific dates.</li>
-<li>View and manage personal booking details.</li>
+✅Book services for specific dates.<br>
+✅View and manage personal booking details.<br>
 </ul>
-Reviews and Ratings:
+<h5>Reviews and Ratings:</h5>
 <ul>
-<li>Read reviews for services.</li>
-<li>Submit reviews and ratings after using a service.</li>
+✅Read reviews for services.<br>
+✅Submit reviews and ratings after using a service.<br>
 </ul>
-Contact Us:
+<h5>Contact Us:</h5>
 <ul>
-<li>Access company contact information for further inquiries.</li>
+✅Access company contact information for further inquiries.<br>
 </ul>
 
-<h3><u>Company Features:</u></h3>
+<h4><u>Company Features:</u></h4>
 
-Booking Management:
+<h5>Booking Management:</h5>
 <ul>
-<li>View all user bookings.</li>
-<li>Approve, reject, mark as pending, or delete bookings.</li>
+✅View all user bookings.<br>
+✅Approve, reject, mark as pending, or delete bookings.<br>
 </ul>
-Advertisement Management:
+<h5>Advertisement Management:</h5>
 <ul>
-<li>Post new ads for services.</li>
-<li>Update or delete existing posts.</li>
+✅Post new ads for services.<br>
+✅Update or delete existing posts.<br>
 </ul>
-Service Management:
+<h5>Service Management:</h5>
 <ul>
-<li>Edit service details and keep them updated.</li>
+✅Edit service details and keep them updated.<br>
 </ul>
 
 <h2>This is the Full Demo of the project</h2><br><br>
 
-![Demo](https://github.com/user-attachments/assets/12af64f5-3fae-4fa5-9a2c-7f82918f3d8d)
+
+
+https://github.com/user-attachments/assets/c2b036a3-2665-42e0-8c48-8660deeca77d
+
+
 
 
 <h2>This is the screenshots of the system</h2><br><br>
